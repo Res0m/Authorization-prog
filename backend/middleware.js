@@ -1,10 +1,10 @@
 const jwt = require('jsonwebtoken');
-require('dotenv').config(); // Загрузка переменных окружения
+require('dotenv').config();
 const SECRET_KEY = process.env.SECRET_KEY;
 
 if (!SECRET_KEY) {
     console.error('SECRET_KEY is not defined in .env file');
-    process.exit(1); // Остановка сервера, если ключ отсутствует
+    process.exit(1);
 }
 
 function authenticateToken(req, res, next) {
