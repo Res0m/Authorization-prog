@@ -1,3 +1,5 @@
+let token = null;
+
 async function register() {
     const username = document.getElementById('register-username').value;
     const password = document.getElementById('register-password').value;
@@ -44,7 +46,11 @@ async function getProtectedData() {
 
     const result = await response.json();
     if (response.ok) {
+        // Отображаем защищенные данные
         document.getElementById('protected-message').innerText = result.message;
+
+        // Отображаем JWT-токен
+        document.getElementById('jwt-token').innerText = token;
     } else {
         alert(result.message);
     }
